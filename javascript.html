@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>javascript</title>
+    
+</head>
+<body>
+   
+    <h1>Sınav Sonucu</h1>
+
+    <form>
+        <input onchange="hesapla()" type="text" id="vize" placeholder="vize"><br><br>
+        <input onchange="hesapla()" type="text" id="final" placeholder="final"><br><br>
+        
+        
+       
+    </form>  
+     <p id="sonuc">sonuc :</p> 
+     <p id="durum">durum: </p> 
+     <p id="harf">harf notu: </p>
+     <script type="text/javascript">
+        
+        function hesapla(){
+            let vize = document.getElementById("vize").value;
+            let final = document.getElementById("final").value;
+            let sonuc = vize * 0.4 + final * 0.6;
+            let durum ;
+            let harf;
+            document.getElementById("sonuc").innerHTML = "sonuc: "+ sonuc;
+            if(final<50 && sonuc<50 ){
+                durum = "kaldin";
+            }else{
+                durum = "gectin";
+            }
+            document.getElementById("durum").innerHTML = "durum : "+ durum;
+            if(sonuc<50){
+                harf = "FF";
+            }else if(50<=sonuc<60){
+                harf = "DD";
+            }
+            else if(60<=sonuc<70){
+                harf="CC";
+            }
+            else if(70<=sonuc<80){
+                harf = "CB";
+            }
+            else if(80<=sonuc<90){
+                harf= "BB";
+            }
+            else if(90<=sonuc<100){
+                harf="AB";
+            }else if(sonuc=100){
+                harf="AA";
+            }else{
+                harf="bir hata var";
+            }
+            document.getElementById("harf").innerHTML = "harf notu : "+ harf;
+
+        }
+        
+    </script>
+</body>
+</html>
